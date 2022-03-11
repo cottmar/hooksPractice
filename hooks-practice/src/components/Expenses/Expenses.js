@@ -8,12 +8,12 @@ const Expenses = (props) => {
         <Card className='expenses'>
             <div>
                 {props.items.map((itemName) => {
-                    {console.log(itemName, 'ITEMS in expenses.js'); console.log(props.items, 'EXPENSES in expenses')}
                     return (
                         <ExpenseItem 
                             item={itemName.item}
                             amount={itemName.amount}
                             uses={itemName.uses}
+                            key={itemName.id}
                         />
                     )
                 })}

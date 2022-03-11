@@ -13,10 +13,19 @@ const ExpenseItem = (props) => {
     // the second element is a fucntion for updating that value
     const [ item, setItem ] = useState(props.item)
 
+    const [ newAmount, setNewAmount ] = useState(props.amount)
+
     // the component function WILL be executed again when state updating function is called
     const clickHandler = () => {
-        setItem('Updated')
+    
+        const amountToDivide = Math.floor(props.amount / 2)
+        setNewAmount(amountToDivide)
+
+        console.log(amountToDivide, 'maths')
+  
     }
+
+
 
     return (
         <Card className="expense-item">
@@ -28,7 +37,7 @@ const ExpenseItem = (props) => {
                 <div className="expense-item__price">
                     <p>{props.uses}</p>
                 </div>
-                <button onClick={clickHandler}>Change Title</button>
+                <button onClick={clickHandler}>Add Use</button>
             </div>
         </Card>
     )

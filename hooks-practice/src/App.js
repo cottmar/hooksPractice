@@ -7,12 +7,14 @@ const initial_dummy_expenses = [
   {
     item: 'Peloton',
     amount: 1400.00,
-    uses: 0
+    uses: 0,
+    id: '1'
   },
   {
     item: 'Car',
     amount: 32000.00,
-    uses: 0
+    uses: 0,
+    id: '2'
   }
 ]
 
