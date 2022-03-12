@@ -6,25 +6,22 @@ import './ExpenseItem.css';
 
 const ExpenseItem = (props) => {
 
-    // returns an array, first value is value itself, second value is the updating function
-    // use array destructuring to store both elements in separate constants
+    const divideAmount = () => {
+        const dividedAmount = props.amount / 2;
 
-    // the FIRST element is the current state value
-    // the second element is a fucntion for updating that value
-    const [ item, setItem ] = useState(props.item)
+        props.newAmountHandler(dividedAmount)
+    }
 
-    const [ newAmount, setNewAmount ] = useState(props.amount)
 
     // the component function WILL be executed again when state updating function is called
     const clickHandler = () => {
-    
-        const amountToDivide = Math.floor(props.amount / 2)
-        setNewAmount(amountToDivide)
-
-        console.log(amountToDivide, 'maths')
-  
+        divideAmount();
     }
 
+    //  In order to update state, we need:
+        // - state for current amount, state for new amount
+        // - Function that takes in the current state and sets the new amount with some division logic inside
+        // - click handler that creates the new object, and can pass this up to parent where the source of truth is
 
 
     return (
@@ -33,11 +30,11 @@ const ExpenseItem = (props) => {
                 <h2>{props.item}</h2>
                 <div className="expense-item__price">
                     <p>${props.amount}</p>
+                    <button onClick={clickHandler}>Add Use</button>
                 </div>
                 <div className="expense-item__price">
                     <p>{props.uses}</p>
                 </div>
-                <button onClick={clickHandler}>Add Use</button>
             </div>
         </Card>
     )

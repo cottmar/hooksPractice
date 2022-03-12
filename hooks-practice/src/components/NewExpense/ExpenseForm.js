@@ -16,6 +16,7 @@ const ExpenseForm = (props) => {
         setEnteredAmount(event.target.value);
     };
 
+    // this is the "event" that allows us to pass object up from a child to parent
     const submitHandler = (event) => {
         event.preventDefault();
 
