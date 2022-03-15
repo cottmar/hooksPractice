@@ -21,7 +21,6 @@ const Expenses = (props) => {
             <div>
                 { 
                     props.items.map((itemName) => {
-                        {console.log(itemName.amount, '__AMOUNT in expenses')}
                         return (
                             <ExpenseItem 
                                 item={itemName.item}

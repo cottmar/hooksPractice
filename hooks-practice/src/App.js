@@ -26,25 +26,22 @@ const App = () => {
     // the FIRST element is the current state value
     // the second element is a fucntion for updating that value
   const [ items, setItems ] = useState(initial_dummy_expenses);
-  const [ amount, setAmount ] = useState('')
 
   const addItemHandler = item => {
-    console.log(item, 'what does item represent')
     setItems((prevItems) => {
       return [item, ...prevItems]
     })
   }
 
-  const newAmountHandler = (item) => {
-
-    console.log(item, 'item in updateItemAmount in APP.js')
+  const newAmountHandler = (amount) => {
+    console.log(amount, 'item in updateItemAmount in APP.js')
   }
 
 
   return (
     <div className="App">
       <NewExpense addItemHandler={addItemHandler}/>
-      <Expenses items={items} newAmountHandler={newAmountHandler} amount={amount}/>
+      <Expenses items={items} newAmountHandler={newAmountHandler} />
     </div>
   );
 }
